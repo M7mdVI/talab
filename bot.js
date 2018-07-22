@@ -616,7 +616,7 @@ if (message.content.startsWith(prefix + "كت تويت")) {
 var embed = new Discord.RichEmbed()
 .setColor('RANDOM')
 .setThumbnail(message.author.avatarURL) 
-.addField('DgPro|لعبه كت تويت' ,
+.addField('لعبه كت تويت' ,
 `${cuttweet[Math.floor(Math.random() * cuttweet.length)]}`)
 message.channel.sendEmbed(embed);
 console.log('[id] Send By: ' + message.author.username)
