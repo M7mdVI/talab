@@ -5,24 +5,6 @@ const prefix = '+'
 
 
 
-client.on('message', message => {
-  var prefix = "+"
-  if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('+allserver')){
-message.channel.sendMessage('جار ارسال الرسالة |✅')
-client.users.forEach(m =>{
-var bc = new
-Discord.RichEmbed()
-.setColor('RANDOM')
-.setTitle('Broadcast')
-.addField('Server', message.guild.name)
-.addField('Sender', message.author.username)
-.addField('Message', args)
-m.send({ embed: bc })
-})
-}
-});
 
 
 
