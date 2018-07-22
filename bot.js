@@ -459,11 +459,11 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لي�
            }).then(() => {
                message.reply("**تم فتح الروم**")
            });
-             }
+             
 
 
 
-});
+
 
 
 
