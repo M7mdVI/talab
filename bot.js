@@ -412,10 +412,7 @@ client.on("message", message => {
             message.guild.member(user).removeRole(muteRole).then(() => {
                 return message.reply("**:white_check_mark: .. تم فك الميوت عن الشخص **").catch(console.error);
             });
-        }
 
-    };
-});
 	
 
 
@@ -649,8 +646,7 @@ client.on('message', message => {
   
              
     
-  }
-});
+
 
 
 client.on('message', message => {
