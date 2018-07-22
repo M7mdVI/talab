@@ -899,3 +899,5 @@ client.on('message', message =>{
         message.channel.send(role.join("\n"));
     }
 });
+
+client.login(process.env.BOT_TOKEN);
