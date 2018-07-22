@@ -1,3 +1,4 @@
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '+'
@@ -384,85 +385,6 @@ client.on("message", message => {
     };
 
 });
-client.on("message", message => {
-
-    if (message.author.bot) return;
-
-    let command = message.content.split(" ")[0];
-
-    if (message.content.startsWith(prefix + 'unmute')) {
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
-        let user = message.mentions.users.first();
-        let modlog = client.channels.find('name', 'mute-log');
-        let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
-        if (!muteRole) return message.reply("** لا يوجد لديك رتبه الميوت 'Muted' **").catch(console.error);
-        if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
-        const embed = new Discord.RichEmbed()
-            .setColor(0x00AE86)
-            .setTimestamp()
-            .addField('الأستعمال:', 'اسكت/احكي')
-            .addField('تم فك الميوت عن:', `${user.username}#${user.discriminator} (${user.id})`)
-            .addField('بواسطة:', `${message.author.username}#${message.author.discriminator}`)
-
-        if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
-
-        if (message.guild.member(user).removeRole(muteRole.id)) {
-            return message.reply("**:white_check_mark: .. تم فك الميوت عن الشخص **").catch(console.error);
-        } else {
-            message.guild.member(user).removeRole(muteRole).then(() => {
-                return message.reply("**:white_check_mark: .. تم فك الميوت عن الشخص **").catch(console.error);
-            });
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-client.on('message', message => {
-
-    if (message.content.startsWith(prefix + "mct")) {
-                        if(!message.channel.guild) return message.reply(' هذا الامر فقط في السيرفرات');
-
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
-           message.channel.overwritePermissions(message.guild.id, {
-         SEND_MESSAGES: false
-
-           }).then(() => {
-               message.reply("**تم تقفيل الروم**")
-           });
-             }
-//MohamedTarek#0849
-    if (message.content.startsWith(prefix + "unmct")) {
-    if(!message.channel.guild) return message.reply(' هذا الامر فقط في السيرفرات');
-
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
-           message.channel.overwritePermissions(message.guild.id, {
-         SEND_MESSAGES: true
-
-           }).then(() => {
-               message.reply("**تم فتح الروم**")
-           });
-             
-
-
-
 
 
 
@@ -490,7 +412,7 @@ client.on('message', message => {
   let reason = message.content.split(" ").slice(2).join(" ");
   /*let b5bzlog = client.channels.find("name", "5bz-log");
   if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+  if (message.mentions.users.size < 1) return message.reply("**منشن ش��ص**");
   if(!reason) return message.reply ("**اكتب سبب الطرد**");
   if (!message.guild.member(user)
   .kickable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
@@ -543,7 +465,7 @@ client.on("message", function(message) {
     let toReason = message.content.split(" ").slice(2).join(" ");
     let toEmbed = new Discord.RichEmbed()
    if(message.content.startsWith(prefix + "ban")) {
-       if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("انت لا تمتلك الصلاحية");
+       if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("انت لا تمتلك ��لصلاح��ة");
        if(!toBan) return message.reply("يجب عليك وضع منيشان للعضو");
        if(toBan.id === ("447121312960479242")) return message.reply("انت لا تستطيع اعطاء لي بان");
        if(toBan === message.member.guild.owner) return message.reply("انت لا تستطيع اعطاء صاحب السيرفر باند");
@@ -758,7 +680,7 @@ client.on('message', message => {
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
     let copy = "DgPro-BC";
     let request = `Requested By ${message.author.username}`;
-    if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
+    if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحت��ى البرودكاست:** \` ${args}\``).then(msg => {
     msg.react('✅')
     .then(() => msg.react('❌'))
     .then(() =>msg.react('✅'))
@@ -1037,4 +959,8 @@ client.on('message', message =>{
     }
 });
 
+
+
 client.login(process.env.BOT_TOKEN);
+
+
