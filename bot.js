@@ -11,26 +11,6 @@ const prefix = '+'
 
 
 
-
-
-
-
-
-
-    client.on('message', message => {
-              if (!message.channel.guild) return;
-      if(message.content =='+member')
-      var IzRo = new Discord.RichEmbed()
-      .setThumbnail(message.author.avatarURL)
-      .setFooter(message.author.username, message.author.avatarURL)
-      .setTitle(':tulip:| Members info')
-      .addBlankField(true)
-      .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
-      message.channel.send(IzRo);
-
-    });
-
-
 client.on('message', function(message) {
 	const myID = "444126346676011028";
     let args = message.content.split(" ").slice(1).join(" ");
@@ -302,6 +282,8 @@ client.on("message", message => {
     };
 
 });
+
+
 client.on("message", message => {
 
     if (message.author.bot) return;
