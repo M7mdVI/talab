@@ -284,68 +284,12 @@ client.on("message", message => {
 });
 
 
-client.on("message", message => {
-
-    if (message.author.bot) return;
-
-    let command = message.content.split(" ")[0];
-
-    if (message.content.startsWith(prefix + 'unmute')) {
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
-        let user = message.mentions.users.first();
-        let modlog = client.channels.find('name', 'mute-log');
-        let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
-        if (!muteRole) return message.reply("** لا يوجد لديك رتبه الميوت 'Muted' **").catch(console.error);
-        if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
-        const embed = new Discord.RichEmbed()
-            .setColor(0x00AE86)
-            .setTimestamp()
-            .addField('الأستعمال:', 'اسكت/احكي')
-            .addField('تم فك الميوت عن:', `${user.username}#${user.discriminator} (${user.id})`)
-            .addField('بواسطة:', `${message.author.username}#${message.author.discriminator}`)
-
-        if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
-
-        if (message.guild.member(user).removeRole(muteRole.id)) {
-            return message.reply("**:white_check_mark: .. تم فك الميوت عن الشخص **").catch(console.error);
-        } else {
-            message.guild.member(user).removeRole(muteRole).then(() => {
-                return message.reply("**:white_check_mark: .. تم فك الميوت عن الشخص **").catch(console.error);
-            });
-        }
-
-    };
-});
-	
 
 
 
 
-client.on('message', message => {
 
-    if (message.content.startsWith(prefix + "mct")) {
-                        if(!message.channel.guild) return message.reply(' هذا الامر فقط في السيرفرات');
 
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
-           message.channel.overwritePermissions(message.guild.id, {
-         SEND_MESSAGES: false
-
-           }).then(() => {
-               message.reply("**تم تقفيل الروم**")
-           });
-             }
-//MohamedTarek#0849
-    if (message.content.startsWith(prefix + "unmct")) {
-    if(!message.channel.guild) return message.reply(' هذا الامر فقط في السيرفرات');
-
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
-           message.channel.overwritePermissions(message.guild.id, {
-         SEND_MESSAGES: true
-
-           }).then(() => {
-               message.reply("**تم فتح الروم**")
-           });
-             }
 
 
 
@@ -586,7 +530,7 @@ if(message.author.bot) return;
 if(message.content === "+ser-av"){ 
     const embed = new Discord.RichEmbed()
 
-.setTitle(`صورة ** ${message.guild.name} **`)
+.setTitle(`صو��ة ** ${message.guild.name} **`)
 .setAuthor(message.author.username, message.guild.iconrURL)
 .setColor('RANDOM')
 .setImage(message.guild.iconURL)
@@ -764,7 +708,7 @@ client.on("message", message => {
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
-        ***__:earth_africa: اوامر عامه:earth_africa: __***
+        ***__:earth_africa: ا��امر عامه:earth_africa: __***
 **
 『+id / معلومات عن حسابك:bust_in_silhouette:』
 『+roles / يعرض لك الرتب و عددها』
@@ -814,7 +758,7 @@ client.on("message", message => {
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
-             **__معلومات عن البوت__**
+             **__معلومات عن ال��وت__**
 **
 『مطور وصاحب البوت : @- Mas ➺ |Abu Waled#2631 』
 『لغة البوت : JS 』
@@ -848,55 +792,6 @@ message.author.sendEmbed(embed)
   .setColor("RANDOM")
   .setDescription(' **تيت يا غالي لا تطول علينا** ')
   message.channel.sendEmbed(embed);
-    }
-});
-
-
-
-
-
-
-
-
-   client.on('message', message => {
-     if (message.content === "باك") {
-      const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setDescription(' **ولكم يا حب نورت ام السيرفر :heart_eyes:** ')
-  message.channel.sendEmbed(embed);
-    }
-});
-
-
-
-   client.on('message', message => {
-     if (message.content === "سلام عليكم") {
-      const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setDescription(' **وعليكم السلام ورحمة الله وبركاته :heartpulse:** ')
-  message.channel.sendEmbed(embed);
-    }
-});
-
-   client.on('message', message => {
-     if (message.content === "السلام عليكم") {
-      const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setDescription(' **وعليكم السلام ورحمة الله وبركاته :heartpulse:** ')
-  message.channel.sendEmbed(embed);
-    }
-});
-
-client.on('message', message =>{
-    if(message.content == "roles"){
-        var roles = '',
-        ros=message.guild.roles.size,
-        role = [];
-        for(let i =0;i<ros;i++){
-            if(message.guild.roles.array()[i].id !== message.guild.id){
-  role.push(message.guild.roles.filter(r => r.position == ros-i).map(r => `${i}- ${r.name}`));  
-        }}
-        message.channel.send(role.join("\n"));
     }
 });
 
